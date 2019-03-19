@@ -1,0 +1,24 @@
+<ion-app>
+  <ion-router-outlet></ion-router-outlet>
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Ionic 4 Barcode Scanner</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content padding>
+
+    <h1>Click Button To Scan</h1>
+
+
+    <button ion-button round (click)="scanCode()">Scan Code</button>
+
+    <div *ngIf="scannedData">
+      <p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>
+      <p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>
+    </div>
+
+  </ion-content>
+  <ion-input type="text" [(ngModel)]="encodedData" ></ion-input>
+  <button ion-button (click)="encodedText()">Encode Text</button>
+</ion-app>
