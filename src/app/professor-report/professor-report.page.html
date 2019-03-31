@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Professor Report</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class="tableHeaderBackground">
+      <ion-col>
+        <div>
+          Date
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         Total Student
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         Attended Students
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let data of attendaceReport">
+      <ion-col>
+        <div>
+          {{data.date}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+         {{data.totalStudents}}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          {{data.attendedStudents}}
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

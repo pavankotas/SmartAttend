@@ -17,19 +17,18 @@ export class RegistrationPage implements OnInit {
   constructor(private userService: RegistrationService,  private router: Router ) { }
   ngOnInit() {}
 
-  addUser() {
-    const userDetails = {} as registration;
-    userDetails.emailID = this.emailID;
-    userDetails.firstName = this.fname;
-    userDetails.lastName = this.lname;
-    userDetails.password = this.password;
-    userDetails.confirmPassword = this.cpassword;
-    console.log(userDetails);
-    this.userService.addUser(userDetails).subscribe(data => {
-      localStorage.setItem('authorization', data.toString());
-      this.router.navigate(['/login']);
-    });
-  }
+    addUser() {
+      const userDetails = {} as registration;
+      userDetails.emailID = this.emailID;
+      userDetails.firstName = this.fname;
+      userDetails.lastName = this.lname;
+      userDetails.password = this.password;
+      userDetails.confirmPassword = this.cpassword;
+      this.userService.addUser(userDetails).subscribe(data => {
+        localStorage.setItem('authorization', data.toString());
+        this.router.navigate(['/login']);
+      });
+    }
 
   clearValues() {
     this.fname = null;

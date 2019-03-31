@@ -24,7 +24,7 @@ export class LoginPage implements OnInit {
    this.loginService.getUsers(user).subscribe( (data) => {
      // @ts-ignore
      if (data.message === 'Success') {
-       this.router.navigate(['./attendance-scanner']);
+       this.router.navigate(['./professor-homepage']);
        // @ts-ignore
        console.log(data.message);
      } else {

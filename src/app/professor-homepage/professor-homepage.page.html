@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div padding>
+    <ion-button id="pReport" (click)="getprofessorReport()" expand="block">Report</ion-button>
+  </div>
+  <div padding>
+    <ion-button id="gQR" href="/attendance-scanner"  (click)="generateQRCode()" expand="block">Take Attendance</ion-button>
+  </div>
+
+</ion-content>

@@ -31,6 +31,6 @@ const UserSchema = new mongoose.Schema({
 
 });
 
-/*Register UserSchema object insdie the mongoose*/
-const User =mongoose.model('User', UserSchema);
+/*Register UserSchema object inside the mongoose*/
+const User =mongoose.model('registeredUser', UserSchema);
 module.exports = User;

@@ -11,14 +11,14 @@ userRouter.get('/', function (req, res, next) {
 
 
 //POST route for updating data
-userRouter.post('/register', function (req, res, next) {
+userRouter.post('/', function (req, res, next) {
     let user = new User(req.body);
-    console.log(user);
     User.create(user)
         .then(user => {
             res.status(200).json({'Result': 'User added successfully'});
         })
         .catch(err => {
+            console.log("Cannot add user");
             res.status(400).send(err);
         });
 })
