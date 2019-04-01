@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/registration', pathMatch: 'full' },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule' },  { path: 'attendance-scanner', loadChildren: './attendance-scanner/attendance-scanner.module#AttendanceScannerPageModule' },
-  { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'attendance-scanner', loadChildren: './attendance-scanner/attendance-scanner.module#AttendanceScannerPageModule' },
+  { path: 'registration', loadChildren: './registration/registration.module#RegistrationPageModule' },
+  { path: 'start-attendance', loadChildren: './start-attendance/start-attendance.module#StartAttendancePageModule' },
   { path: 'professor-homepage', loadChildren: './professor-homepage/professor-homepage.module#ProfessorHomepagePageModule' },
   { path: 'professor-report', loadChildren: './professor-report/professor-report.module#ProfessorReportPageModule' },
 

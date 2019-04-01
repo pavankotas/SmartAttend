@@ -9,7 +9,7 @@ export class LoginService {
   uri = 'http://localhost:3000/api/login';
   constructor( private http: HttpClient) { }
 
-  getUsers(user) {
+  authenticate(user) {
    return this.http.post(`${this.uri}`, user);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from '../services/login.service';
 import {Route, Router} from '@angular/router';
+import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +22,19 @@ export class LoginPage implements OnInit {
       emailID: this.emailID,
       password: this.password
     };
-   this.loginService.getUsers(user).subscribe( (data) => {
+   this.loginService.authenticate(user).subscribe( (data) => {
      // @ts-ignore
-     if (data.message === 'Success') {
-       this.router.navigate(['./professor-homepage']);
+     if (data.message === 'success') {
        // @ts-ignore
-       console.log(data.message);
+       console.log(data);
+       // @ts-ignore
+       localStorage.setItem('userID', data.userID);
+       // @ts-ignore
+       if (data.userType === 'admin') {
+           this.router.navigate(['./professor-homepage']);
+       } else {
+          this.router.navigate(['./attendance-scanner']);
+       }
      } else {
        // @ts-ignore
        console.log(data.message);

@@ -17,8 +17,34 @@
       <p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>
     </div>
 
+    <ion-row>
+      <ion-input type="textbox" placeholder="Message" [(ngModel)]="message"></ion-input>
+    </ion-row>
+    <ion-row>
+      <ion-input type="textbox" placeholder="Send to" [(ngModel)]="toID"></ion-input>
+    </ion-row>
+    <ion-row>
+      <button (click)="sendMessage()">Send</button>
+    </ion-row>
+
   </ion-content>
-  <ion-input type="text" [(ngModel)]="encodedData" ></ion-input>
-  <button ion-button (click)="encodedText()">Encode Text</button>
+
 </ion-app>
 
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div padding>
+    <ion-button (click)="scanCode()" expand="block">Mark Attendance</ion-button>
+  </div>
+  <div padding>
+    <ion-button (click)="takeAttendance()" expand="block">Take Attendance</ion-button>
+  </div>
+
+</ion-content>

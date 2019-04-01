@@ -13,6 +13,7 @@ userRouter.get('/', function (req, res, next) {
 //POST route for updating data
 userRouter.post('/', function (req, res, next) {
     let user = new User(req.body);
+    user.userType = 'student'
     User.create(user)
         .then(user => {
             res.status(200).json({'Result': 'User added successfully'});

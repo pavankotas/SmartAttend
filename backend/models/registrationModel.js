@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     emailID: {
         type: String,
         unique:true,
-        Required:  [true, 'Email address cannot be left blank'],
+        required:  [true, 'Email address cannot be left blank'],
         trim:true
     },
     password:{
@@ -25,6 +25,9 @@ const UserSchema = new mongoose.Schema({
     confirmPassword:{
         type: String,
         required: [true, 'Password cannot be left blank'],
+    },
+    userType:{
+        type: String
     },
     /*for encryption and decryption of password saved*/
     saltSecret: String

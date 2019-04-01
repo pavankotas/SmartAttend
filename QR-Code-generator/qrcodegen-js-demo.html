@@ -68,7 +68,7 @@
 					</svg>
 				</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td><strong>Error correction:</strong></td>
 				<td>
 					<input type="radio" name="errcorlvl" id="errcorlvl-low" checked="checked"><label for="errcorlvl-low">Low</label>
@@ -77,37 +77,37 @@
 					<input type="radio" name="errcorlvl" id="errcorlvl-high"><label for="errcorlvl-high">High</label>
 				</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Output format:</td>
 				<td>
 					<input type="radio" name="output-format" id="output-format-bitmap" checked="checked"><label for="output-format-bitmap">Bitmap</label>
 					<input type="radio" name="output-format" id="output-format-vector"><label for="output-format-vector">Vector</label>
 				</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Border:</td>
 				<td><input type="number" value="4" min="0" max="100" step="1" id="border-input" style="width:4em"> modules</td>
 			</tr>
-			<tr id="scale-row">
+			<tr id="scale-row" style="">
 				<td>Scale:</td>
 				<td><input type="number" value="8" min="1" max="30" step="1" id="scale-input" style="width:4em"> pixels per module</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Version range:</td>
 				<td>
 					Minimum = <input type="number" value="1"  min="1" max="40" step="1" id="version-min-input" style="width:4em" oninput="app.handleVersionMinMax('min');">,
 					maximum = <input type="number" value="40" min="1" max="40" step="1" id="version-max-input" style="width:4em" oninput="app.handleVersionMinMax('max');">
 				</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Mask pattern:</td>
 				<td><input type="number" value="-1" min="-1" max="7" step="1" id="mask-input" style="width:4em"> (−1 for automatic, 0 to 7 for manual)</td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Boost ECC:</td>
 				<td><input type="checkbox" checked="checked" id="boost-ecc-input"><label for="boost-ecc-input">Increase <abbr title="error-correcting code">ECC</abbr> level within same version</label></td>
 			</tr>
-			<tr>
+			<tr style="">
 				<td>Statistics:</td>
 				<td id="statistics-output" style="white-space:pre"></td>
 			</tr>

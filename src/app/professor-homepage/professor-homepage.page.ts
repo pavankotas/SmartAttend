@@ -12,7 +12,11 @@ export class ProfessorHomepagePage implements OnInit {
 
   ngOnInit() {
   }
-  getprofessorReport() {
+  getReport() {
     this.router.navigate(['./professor-report']);
+  }
+
+  takeAttendance() {
+    this.router.navigate(['./start-attendance']);
   }
 }

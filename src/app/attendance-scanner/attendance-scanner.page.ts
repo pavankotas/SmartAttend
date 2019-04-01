@@ -4,6 +4,7 @@ import {BarcodeScanner, BarcodeScannerOptions} from '@ionic-native/barcode-scann
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {Socket} from 'ng-socket-io';
 
 @Component({
   selector: 'app-attendance-scanner',
@@ -16,12 +17,20 @@ export class AttendanceScannerPage implements OnInit {
   scannedData: {};
   barcodeScannerOptions: BarcodeScannerOptions;
 
+  message = '';
+  toID = '';
+  sendMessage() {
+    this.socket.emit('Message', {message: this.message, toID: this.toID, from: localStorage.getItem('userID')});
+  }
+
+
   constructor(
       private platform: Platform,
       private splashScreen: SplashScreen,
       private statusBar: StatusBar,
-      private barcodeScanner: BarcodeScanner
-  ) {
+      private barcodeScanner: BarcodeScanner,
+      private  socket: Socket
+   ) {
     this.initializeApp();
 
     // Options
@@ -29,6 +38,13 @@ export class AttendanceScannerPage implements OnInit {
       showTorchButton: true,
       showFlipCameraButton: true
     };
+
+    this.socket.on('Message', (data) => {
+      console.log(data);
+    });
+    this.socket.connect();
+    console.log(localStorage.getItem('userID'));
+    this.socket.emit('set-username', localStorage.getItem('userID'));
   }
 
   initializeApp() {

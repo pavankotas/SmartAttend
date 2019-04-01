@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Scan the QR Code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <qrcode [qrdata]="QRCode" [size]="256" [level]="'M'"></qrcode>
+  </ion-item>
+</ion-content>

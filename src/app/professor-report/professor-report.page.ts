@@ -7,11 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfessorReportPage implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-  const attendaceReport = [
+  attendanceReport = [
     {
       date: '03-20-2019',
       totalStudents: '20',
@@ -28,5 +24,9 @@ export class ProfessorReportPage implements OnInit {
       attendedStudents: '15'
     }
   ];
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

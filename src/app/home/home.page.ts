@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Socket} from 'ng-socket-io';
+
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,4 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-}
+ }
