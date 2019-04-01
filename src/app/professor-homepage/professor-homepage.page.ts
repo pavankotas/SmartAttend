@@ -19,4 +19,7 @@ export class ProfessorHomepagePage implements OnInit {
   takeAttendance() {
     this.router.navigate(['./start-attendance']);
   }
+  logout() {
+    this.router.navigate(['./login']);
+  }
 }

@@ -1,10 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Professor Report</ion-title>
-  </ion-toolbar>
+<ion-header  class="appBackgroundColor">
+    <ion-grid>
+        <ion-row class="">
+            <ion-col>
+                <ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>
+            </ion-col>
+            <ion-col>
+                <ion-title>Smart Attend</ion-title>
+            </ion-col>
+            <ion-col>
+                <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-header>
-
-<ion-content padding>
+<!--<ion-content padding>
   <ion-grid>
     <ion-row class="tableHeaderBackground">
       <ion-col>
@@ -43,4 +52,24 @@
 
   </ion-grid>
 
+</ion-content>-->
+<ion-content padding  class="appBackgroundColor">
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Total</th>
+        <th scope="col">Attended</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of attendanceReport">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.totalStudents}}</td>
+        <td>{{data.attendedStudents}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </ion-content>

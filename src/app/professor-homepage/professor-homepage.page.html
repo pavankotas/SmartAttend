@@ -1,16 +1,31 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
+<ion-header class="appBackgroundColor">
+  <ion-grid>
+    <ion-row class="">
+      <ion-col>
+        <!--<ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>-->
+      </ion-col>
+      <ion-col>
+        <ion-title>Smart Attend</ion-title>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-header>
+<ion-content padding class="appBackgroundColor">
 
-<ion-content padding>
-
-  <div padding>
-    <ion-button id="pReport" (click)="getReport()" expand="block">Report</ion-button>
-  </div>
-  <div padding>
-    <ion-button (click)="takeAttendance()" expand="block">Take Attendance</ion-button>
-  </div>
+  <ion-card ion-margin-top>
+    <ion-item (click)="getReport()">
+      <ion-icon name="paper" slot="start"></ion-icon>
+      <ion-label>View Report</ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-card ion-margin-top>
+    <ion-item (click)="takeAttendance()">
+      <ion-icon name="finger-print" slot="start"></ion-icon>
+      <ion-label>Take Attendance</ion-label>
+    </ion-item>
+  </ion-card>
 
 </ion-content>

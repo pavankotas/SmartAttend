@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-professor-report',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfessorReportPage implements OnInit {
 
-  attendanceReport = [
+  constructor( private router: Router) { }
+
+    attendanceReport = [
     {
       date: '03-20-2019',
       totalStudents: '20',
@@ -24,9 +27,14 @@ export class ProfessorReportPage implements OnInit {
       attendedStudents: '15'
     }
   ];
-  constructor() { }
 
   ngOnInit() {
   }
 
+  backToProfessorHomePage() {
+    this.router.navigate(['./professor-homepage']);
+  }
+  logout() {
+    this.router.navigate(['./login']);
+  }
 }

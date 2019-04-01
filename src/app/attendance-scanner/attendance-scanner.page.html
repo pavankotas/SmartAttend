@@ -1,50 +1,47 @@
 <ion-app>
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Ionic 4 Barcode Scanner</ion-title>
-    </ion-toolbar>
+  <ion-header class="appBackgroundColor">
+    <ion-grid>
+      <ion-row class="">
+        <ion-col>
+          <!--<ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>-->
+        </ion-col>
+        <ion-col>
+          <ion-title>Smart Attend</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-header>
+  <!--<ion-content padding>-->
 
-  <ion-content padding>
-
-    <h1>Click Button To Scan</h1>
+    <!--<h1>Click Button To Scan</h1>-->
 
 
-    <button ion-button round (click)="scanCode()">Scan Code</button>
+    <!--<button ion-button round (click)="scanCode()">Scan Code</button>-->
 
-    <div *ngIf="scannedData">
-      <p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>
-      <p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>
+    <!--<div *ngIf="scannedData">-->
+      <!--<p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>-->
+      <!--<p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>-->
+    <!--</div>-->
+
+    <!--<ion-row>-->
+      <!--<ion-input type="textbox" placeholder="Message" [(ngModel)]="message"></ion-input>-->
+    <!--</ion-row>-->
+    <!--<ion-row>-->
+      <!--<ion-input type="textbox" placeholder="Send to" [(ngModel)]="toID"></ion-input>-->
+    <!--</ion-row>-->
+    <!--<ion-row>-->
+      <!--<button (click)="sendMessage()">Send</button>-->
+    <!--</ion-row>-->
+
+  <!--</ion-content>-->
+  <ion-content padding   class="appBackgroundColor">
+
+    <div padding>
+      <ion-button (click)="scanCode()" expand="block">Checkin</ion-button>
     </div>
-
-    <ion-row>
-      <ion-input type="textbox" placeholder="Message" [(ngModel)]="message"></ion-input>
-    </ion-row>
-    <ion-row>
-      <ion-input type="textbox" placeholder="Send to" [(ngModel)]="toID"></ion-input>
-    </ion-row>
-    <ion-row>
-      <button (click)="sendMessage()">Send</button>
-    </ion-row>
-
   </ion-content>
 
 </ion-app>
-
-
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
-
-  <div padding>
-    <ion-button (click)="scanCode()" expand="block">Mark Attendance</ion-button>
-  </div>
-  <div padding>
-    <ion-button (click)="takeAttendance()" expand="block">Take Attendance</ion-button>
-  </div>
-
-</ion-content>
