@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+import {QrcodeService} from '../services/qrcode.service';
+
+
 
 @Component({
   selector: 'app-professor-report',
@@ -8,33 +11,23 @@ import { Router} from '@angular/router';
 })
 export class ProfessorReportPage implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor( private router: Router,  private qrcodeService: QrcodeService) { }
 
-    attendanceReport = [
-    {
-      date: '03-20-2019',
-      totalStudents: '20',
-      attendedStudents: '19'
-    },
-    {
-      date: '03-21-2019',
-      totalStudents: '20',
-      attendedStudents: '15'
-    },
-    {
-      date: '03-22-2019',
-      totalStudents: '20',
-      attendedStudents: '15'
-    }
-  ];
+    attendanceReport ;
 
   ngOnInit() {
+    this.getReport();
   }
 
   backToProfessorHomePage() {
     this.router.navigate(['./professor-homepage']);
   }
+  getReport() {
+    this.qrcodeService.getReport().subscribe(data => {
+      this.attendanceReport = data;
+    });
+  }i
   logout() {
-    this.router.navigate(['./login']);
+    // this.router.navigate(['./login']);
   }
 }

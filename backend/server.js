@@ -7,16 +7,17 @@ var app = express();
 var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
+var users= {};
+
 server.listen(3000, function () {
     console.log('Listening on port 3000');
 });
 
 const registrationRoute = require('./routes/registrationRoute');
 const loginRoute = require ('./routes/loginRoute');
-const qrRoute = require ('./routes/qrcodeRoute');
+const qrRoute = require ('./routes/qrcodeRoute')(io, users);
 
 const jwt = require('jsonwebtoken');
-var users= {};
 
 const cors=require('cors');
 const bodyParser =require('body-parser');

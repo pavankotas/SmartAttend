@@ -5,6 +5,11 @@ import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Socket} from 'ng-socket-io';
+import { AlertController } from '@ionic/angular';
+
+
+import {QrcodeService} from '../services/qrcode.service';
+
 
 @Component({
   selector: 'app-attendance-scanner',
@@ -15,6 +20,7 @@ export class AttendanceScannerPage implements OnInit {
 
   encodeData: any;
   scannedData: {};
+  response: string;
   barcodeScannerOptions: BarcodeScannerOptions;
 
   message = '';
@@ -29,7 +35,9 @@ export class AttendanceScannerPage implements OnInit {
       private splashScreen: SplashScreen,
       private statusBar: StatusBar,
       private barcodeScanner: BarcodeScanner,
-      private  socket: Socket
+      private  socket: Socket,
+      public alertController: AlertController,
+      private qrcodeService: QrcodeService
    ) {
     this.initializeApp();
 
@@ -58,8 +66,18 @@ export class AttendanceScannerPage implements OnInit {
 
   scanCode() {
     this.barcodeScanner.scan().then(barcodeData => {
-      alert('Barcode data ' + JSON.stringify(barcodeData));
-      this.scannedData = barcodeData;
+      console.log('Bar Code Scanned');
+      const attendance = {
+        studentEmailID : localStorage.getItem('userID'),
+        courseID: 'CS5525',
+        qrCode : barcodeData.text
+      };
+      console.log(attendance);
+      this.qrcodeService.checkin(attendance).subscribe(data => {
+        // @ts-ignore
+        this.response = data.message;
+        this.presentAlert();
+      });
     }).catch(err => {
       console.log('Error', err);
     });
@@ -73,6 +91,18 @@ export class AttendanceScannerPage implements OnInit {
       console.log('Error occured : ' + err);
     });
   }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Attendance',
+      subHeader: '',
+      message: 'Checked in successfully',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
 
   ngOnInit() {
   }
