@@ -8,8 +8,8 @@ var server = http.createServer(app);
 var io = require('socket.io').listen(server);
 
 var users= {};
-
-server.listen(3000, function () {
+const PORT= process.env.PORT || 3000
+server.listen(PORT, function () {
     console.log('Listening on port 3000');
 });
 

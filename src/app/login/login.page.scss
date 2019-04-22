@@ -4,9 +4,19 @@
   background: linear-gradient(to right, #D6A4A4, #DAE2F8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+.ion-margin-top{
+  margin-top: 9em;
+}
 .timesFontStyle{
-  font-family: "Times New Roman", Times, serif;
-  color: #795548;
+  font-family: Georgia, serif;
+  color: #00BCD4;
   font-style: italic;
-  font-size: 40px;
+  font-size: 30px;
+  letter-spacing: -0.4px;
+  word-spacing: 1.6px;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: italic;
+  font-variant: normal;
+  text-transform: capitalize;
 }

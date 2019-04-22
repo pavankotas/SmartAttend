@@ -1,9 +1,10 @@
+<!--
 <ion-app>
   <ion-header class="appBackgroundColor">
     <ion-grid>
       <ion-row class="">
         <ion-col>
-          <!--<ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>-->
+          &lt;!&ndash;<ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>&ndash;&gt;
         </ion-col>
         <ion-col>
           <ion-title>Smart Attend</ion-title>
@@ -14,29 +15,29 @@
       </ion-row>
     </ion-grid>
   </ion-header>
-  <!--<ion-content padding>-->
+  &lt;!&ndash;<ion-content padding>&ndash;&gt;
 
-    <!--<h1>Click Button To Scan</h1>-->
+    &lt;!&ndash;<h1>Click Button To Scan</h1>&ndash;&gt;
 
 
-    <!--<button ion-button round (click)="scanCode()">Scan Code</button>-->
+    &lt;!&ndash;<button ion-button round (click)="scanCode()">Scan Code</button>&ndash;&gt;
 
-    <!--<div *ngIf="scannedData">-->
-      <!--<p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>-->
-      <!--<p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>-->
-    <!--</div>-->
+    &lt;!&ndash;<div *ngIf="scannedData">&ndash;&gt;
+      &lt;!&ndash;<p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>&ndash;&gt;
+      &lt;!&ndash;<p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>&ndash;&gt;
+    &lt;!&ndash;</div>&ndash;&gt;
 
-    <!--<ion-row>-->
-      <!--<ion-input type="textbox" placeholder="Message" [(ngModel)]="message"></ion-input>-->
-    <!--</ion-row>-->
-    <!--<ion-row>-->
-      <!--<ion-input type="textbox" placeholder="Send to" [(ngModel)]="toID"></ion-input>-->
-    <!--</ion-row>-->
-    <!--<ion-row>-->
-      <!--<button (click)="sendMessage()">Send</button>-->
-    <!--</ion-row>-->
+    &lt;!&ndash;<ion-row>&ndash;&gt;
+      &lt;!&ndash;<ion-input type="textbox" placeholder="Message" [(ngModel)]="message"></ion-input>&ndash;&gt;
+    &lt;!&ndash;</ion-row>&ndash;&gt;
+    &lt;!&ndash;<ion-row>&ndash;&gt;
+      &lt;!&ndash;<ion-input type="textbox" placeholder="Send to" [(ngModel)]="toID"></ion-input>&ndash;&gt;
+    &lt;!&ndash;</ion-row>&ndash;&gt;
+    &lt;!&ndash;<ion-row>&ndash;&gt;
+      &lt;!&ndash;<button (click)="sendMessage()">Send</button>&ndash;&gt;
+    &lt;!&ndash;</ion-row>&ndash;&gt;
 
-  <!--</ion-content>-->
+  &lt;!&ndash;</ion-content>&ndash;&gt;
   <ion-content padding   class="appBackgroundColor">
 
     <div padding>
@@ -45,3 +46,38 @@
   </ion-content>
 
 </ion-app>
+-->
+
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Dashboard
+      <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card *ngFor=" let courses of courses">
+    <ion-card-header color="primary">
+      <h5>Attendance: {{courses.attendance}}</h5>
+    </ion-card-header>
+      <ion-card-content>
+      <br/>
+      <ion-card-title>{{courses.stream}}</ion-card-title>
+      <p>  {{courses.coursecode}}</p>
+      <p> {{courses.semesteryear}}</p>
+
+        <!--<ion-button (click)="scanCode()"  expand="block">Checkin</ion-button>-->
+        <ion-chip color="secondary" (click)="scanCode()">
+          <ion-label>Checkin</ion-label>
+        </ion-chip>
+        <ion-chip color="secondary" (click)="getReport()" >
+          <ion-label>View Reports</ion-label>
+        </ion-chip>
+
+     <!-- <div padding>
+        <ion-button (click)="getReport()" expand="block">Report</ion-button>
+      </div>-->
+    </ion-card-content>
+    </ion-card>
+</ion-content>

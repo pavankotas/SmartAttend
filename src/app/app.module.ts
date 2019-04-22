@@ -18,6 +18,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
+
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({

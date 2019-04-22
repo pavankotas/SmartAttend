@@ -12,7 +12,7 @@ export class LoginPage implements OnInit {
 
   emailID: String = '';
   password: String = '';
-  InvalidUser = false;
+  InvalidUser: Boolean = false;
   constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
    this.loginService.authenticate(user).subscribe( (data) => {
      // @ts-ignore
      if (data.message === 'success') {
+       this.InvalidUser = false;
        // @ts-ignore
        console.log(data);
        // @ts-ignore
@@ -36,6 +37,7 @@ export class LoginPage implements OnInit {
           this.router.navigate(['./attendance-scanner']);
        }
      } else {
+       this.InvalidUser = true;
        // @ts-ignore
        console.log(data.message);
      }

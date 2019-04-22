@@ -5,6 +5,7 @@ import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {Socket} from 'ng-socket-io';
+import {Router} from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 
@@ -22,7 +23,7 @@ export class AttendanceScannerPage implements OnInit {
   scannedData: {};
   response: string;
   barcodeScannerOptions: BarcodeScannerOptions;
-
+  courses: {};
   message = '';
   toID = '';
   sendMessage() {
@@ -36,11 +37,24 @@ export class AttendanceScannerPage implements OnInit {
       private statusBar: StatusBar,
       private barcodeScanner: BarcodeScanner,
       private  socket: Socket,
+      private router: Router,
       public alertController: AlertController,
       private qrcodeService: QrcodeService
    ) {
     this.initializeApp();
-
+    // Course data
+    this.courses = [ {
+      stream : 'Computer Science',
+      coursecode: '5525 0001 Cloud Computing',
+      semesteryear: '2019 Spring Semester',
+      attendance: '97%'
+    }, {
+      stream : 'Computer Science',
+      coursecode: '5540 0001 Principles Of Big Data Management',
+      semesteryear: '2019 Spring Semester',
+      attendance: '99%'
+    }
+    ];
     // Options
     this.barcodeScannerOptions = {
       showTorchButton: true,
@@ -82,6 +96,9 @@ export class AttendanceScannerPage implements OnInit {
       console.log('Error', err);
     });
   }
+  getReport() {
+    this.router.navigate(['./student-report']);
+  }
 
   encodedText() {
     this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.encodeData).then((encodedData) => {
@@ -90,6 +107,9 @@ export class AttendanceScannerPage implements OnInit {
     }, (err) => {
       console.log('Error occured : ' + err);
     });
+  }
+  logout() {
+    this.router.navigate(['./login']);
   }
 
   async presentAlert() {
