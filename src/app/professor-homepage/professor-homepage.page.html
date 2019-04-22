@@ -1,31 +1,34 @@
-<ion-header class="appBackgroundColor">
-  <ion-grid>
-    <ion-row class="">
-      <ion-col>
-        <!--<ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>-->
-      </ion-col>
-      <ion-col>
-        <ion-title>Smart Attend</ion-title>
-      </ion-col>
-      <ion-col>
-        <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Dashboard
+      <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
-<ion-content padding class="appBackgroundColor">
 
-  <ion-card ion-margin-top>
-    <ion-item (click)="getReport()">
-      <ion-icon name="paper" slot="start"></ion-icon>
-      <ion-label>View Report</ion-label>
-    </ion-item>
-  </ion-card>
-  <ion-card ion-margin-top>
-    <ion-item (click)="takeAttendance()">
-      <ion-icon name="finger-print" slot="start"></ion-icon>
-      <ion-label>Take Attendance</ion-label>
-    </ion-item>
-  </ion-card>
 
+<ion-content padding>
+  <ion-card *ngFor=" let courses of courses">
+   <!-- <ion-card-header color="primary">
+      <h5>Attendance: {{courses.attendance}}</h5>
+    </ion-card-header>-->
+    <ion-card-content>
+      <br/>
+      <ion-card-title>{{courses.stream}}</ion-card-title>
+      <p>  {{courses.coursecode}}</p>
+      <p> {{courses.semesteryear}}</p>
+
+      <!--<ion-button (click)="scanCode()"  expand="block">Checkin</ion-button>-->
+      <ion-chip color="secondary" (click)="takeAttendance()">
+        <ion-label>Take Attendance</ion-label>
+      </ion-chip>
+      <ion-chip color="secondary" (click)="getReport()" >
+        <ion-label>View Reports</ion-label>
+      </ion-chip>
+
+      <!-- <div padding>
+         <ion-button (click)="getReport()" expand="block">Report</ion-button>
+       </div>-->
+    </ion-card-content>
+  </ion-card>
 </ion-content>

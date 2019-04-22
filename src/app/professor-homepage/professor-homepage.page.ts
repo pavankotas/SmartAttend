@@ -7,8 +7,22 @@ import { Router} from '@angular/router';
   styleUrls: ['./professor-homepage.page.scss'],
 })
 export class ProfessorHomepagePage implements OnInit {
-
-  constructor( private router: Router) { }
+  courses: {};
+  constructor( private router: Router) {
+    // Course data
+    this.courses = [ {
+      stream : 'Computer Science',
+      coursecode: '5525 0001 Cloud Computing',
+      semesteryear: '2019 Spring Semester',
+      attendance: '97%'
+    }, {
+      stream : 'Computer Science',
+      coursecode: '5540 0001 Principles Of Big Data Management',
+      semesteryear: '2019 Spring Semester',
+      attendance: '99%'
+    }
+    ];
+  }
 
   ngOnInit() {
   }

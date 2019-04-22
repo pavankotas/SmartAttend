@@ -1,18 +1,22 @@
-<ion-header  class="appBackgroundColor">
-    <ion-grid>
-        <ion-row class="">
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-grid>
+        <ion-row>
             <ion-col>
                 <ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>
             </ion-col>
             <ion-col>
-                <ion-title>Smart Attend</ion-title>
+                <ion-label>Attendance Report</ion-label>
             </ion-col>
             <ion-col>
                 <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
             </ion-col>
         </ion-row>
-    </ion-grid>
+      </ion-grid>
+    </ion-toolbar>
 </ion-header>
+
+
 <!--<ion-content padding>
   <ion-grid>
     <ion-row class="tableHeaderBackground">

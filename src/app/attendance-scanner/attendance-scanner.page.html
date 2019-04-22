@@ -49,35 +49,37 @@
 -->
 
 <ion-header>
-  <ion-toolbar color="secondary">
-    <ion-title>Dashboard
-      <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
-    </ion-title>
+  <ion-toolbar  color="secondary">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-title>Dashboard</ion-title>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+
+<ion-content>
   <ion-card *ngFor=" let courses of courses">
     <ion-card-header color="primary">
       <h5>Attendance: {{courses.attendance}}</h5>
     </ion-card-header>
-      <ion-card-content>
-      <br/>
+    <ion-card-content>
       <ion-card-title>{{courses.stream}}</ion-card-title>
-      <p>  {{courses.coursecode}}</p>
-      <p> {{courses.semesteryear}}</p>
-
+        <p>{{courses.coursecode}}</p>
+        <p>{{courses.semesteryear}}</p>
         <!--<ion-button (click)="scanCode()"  expand="block">Checkin</ion-button>-->
-        <ion-chip color="secondary" (click)="scanCode()">
-          <ion-label>Checkin</ion-label>
-        </ion-chip>
-        <ion-chip color="secondary" (click)="getReport()" >
-          <ion-label>View Reports</ion-label>
-        </ion-chip>
-
-     <!-- <div padding>
-        <ion-button (click)="getReport()" expand="block">Report</ion-button>
-      </div>-->
+          <ion-chip color="secondary" (click)="scanCode()">
+            <ion-label>Checkin</ion-label>
+          </ion-chip>
+          <ion-chip color="secondary" (click)="getReport()" >
+            <ion-label>View Reports</ion-label>
+          </ion-chip>
     </ion-card-content>
-    </ion-card>
+  </ion-card>
 </ion-content>

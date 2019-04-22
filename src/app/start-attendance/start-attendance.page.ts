@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Socket} from 'ng-socket-io';
 import { QrcodeService} from '../services/qrcode.service';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-start-attendance',
   templateUrl: './start-attendance.page.html',
@@ -10,7 +12,7 @@ export class StartAttendancePage implements OnInit {
 
   public QRCode: string = null;
   public task: any;
-  constructor( private  socket: Socket, private qrService: QrcodeService) {
+  constructor( private  socket: Socket, private qrService: QrcodeService, private router: Router) {
       this.socket.connect();
       this.socket.emit('set-username', localStorage.getItem('userID'));
       this.refreshData();
@@ -27,6 +29,9 @@ export class StartAttendancePage implements OnInit {
           }
       });
   }
+    endSession() {
+        this.router.navigate(['./professor-homepage']);
+    }
   refreshData() {
     this.QRCode = (Math.floor((Math.random() * 100000000) + 1)).toString();
   }

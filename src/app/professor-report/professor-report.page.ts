@@ -26,7 +26,7 @@ export class ProfessorReportPage implements OnInit {
     this.qrcodeService.getReport().subscribe(data => {
       this.attendanceReport = data;
     });
-  }i
+  }
   logout() {
     // this.router.navigate(['./login']);
   }

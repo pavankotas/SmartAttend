@@ -1,11 +1,47 @@
-
-<ion-header>
+<!--<ion-header>
   <ion-toolbar color="secondary">
-    <ion-col>
-      <ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>
-    </ion-col>
-    <ion-title>
-      <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+    <ion-icon size="large" class="float-left"  (click)="backToDashboard()" name="arrow-dropleft-circle"></ion-icon>
+    <ion-title>Report
+    <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
     </ion-title>
   </ion-toolbar>
+</ion-header>-->
+
+<ion-header>
+  <ion-toolbar  color="secondary">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon size="large" (click)="backToDashboard()" name="arrow-dropleft-circle"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-label>Report</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
 </ion-header>
+
+<ion-content padding>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Total</th>
+        <th scope="col">Attended</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of attendanceReport">
+        <th scope="row">{{data.date}}</th>
+        <td>{{data.totalStudents}}</td>
+        <td>{{data.attendedStudents}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ion-content>
