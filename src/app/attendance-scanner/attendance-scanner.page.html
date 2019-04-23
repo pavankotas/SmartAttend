@@ -53,7 +53,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-title>Dashboard</ion-title>
+        <ion-label>Dashboard</ion-label>
       </ion-col>
       <ion-col>
         <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
@@ -66,9 +66,9 @@
 
 <ion-content>
   <ion-card *ngFor=" let courses of courses">
-    <ion-card-header color="primary">
+  <!--  <ion-card-header color="primary">
       <h5>Attendance: {{courses.attendance}}</h5>
-    </ion-card-header>
+    </ion-card-header>-->
     <ion-card-content>
       <ion-card-title>{{courses.stream}}</ion-card-title>
         <p>{{courses.coursecode}}</p>
@@ -77,7 +77,7 @@
           <ion-chip color="secondary" (click)="scanCode()">
             <ion-label>Checkin</ion-label>
           </ion-chip>
-          <ion-chip color="secondary" (click)="getReport()" >
+          <ion-chip color="secondary" (click)="getReport()">
             <ion-label>View Reports</ion-label>
           </ion-chip>
     </ion-card-content>
