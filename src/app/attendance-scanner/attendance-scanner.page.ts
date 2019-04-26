@@ -47,8 +47,8 @@ export class AttendanceScannerPage implements OnInit {
       stream : 'Computer Science',
       coursecode: '5525 0001 Cloud Computing',
       semesteryear: '2019 Spring Semester',
-      attendance: '97%'
-    },
+      attendance: 'NA'
+    }
     ];
     // Options
     this.barcodeScannerOptions = {

@@ -22,7 +22,7 @@ export class StudentReportPage implements OnInit {
   }
 
   getReport() {
-    this.studentReportService.getReport().subscribe(data => {
+    this.studentReportService.getReport(localStorage.getItem('userID')).subscribe(data => {
       this.attendanceReport = data;
     });
   }

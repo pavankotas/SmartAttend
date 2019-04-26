@@ -14,12 +14,7 @@ export class ProfessorHomepagePage implements OnInit {
       stream : 'Computer Science',
       coursecode: '5525 0001 Cloud Computing',
       semesteryear: '2019 Spring Semester',
-      attendance: '97%'
-    }, {
-      stream : 'Computer Science',
-      coursecode: '5540 0001 Principles Of Big Data Management',
-      semesteryear: '2019 Spring Semester',
-      attendance: '99%'
+      attendance: 'N/A'
     }
     ];
   }

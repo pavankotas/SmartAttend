@@ -4,6 +4,7 @@
   "description": "SmartAttend BackEnd Implementation with nodejs, expressjs, cors and MongoDB",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dharani Muli and Chakra Pavan Kumar Kota",

@@ -10,7 +10,7 @@ const httpOptions = {
 })
 export class QrcodeService {
 
-  uri = 'http://localhost:3000/api/qrcode';
+  uri = 'https://smartattend.herokuapp.com/api/qrcode';
 
   constructor(private http: HttpClient) {
   }

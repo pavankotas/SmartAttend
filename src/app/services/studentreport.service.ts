@@ -8,12 +8,13 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class StudentreportService {
-  uri = 'http://localhost:3000/api/qrcode'
+  uri = 'https://smartattend.herokuapp.com/api/qrcode'
 
   constructor(private http: HttpClient) { }
 
-  getReport() {
-    return this.http.get(`${this.uri}/report`);
+  getReport(id) {
+    // /${localStorage.getItem('userID')}
+    return this.http.get(`${this.uri}/studentreport/${id}`);
   }
 
 }

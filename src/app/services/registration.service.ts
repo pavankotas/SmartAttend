@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class RegistrationService {
 
-  uri = 'http://localhost:3000/api/register';
+  uri = 'https://smartattend.herokuapp.com/api/register';
 
   constructor(private http: HttpClient) {
   }

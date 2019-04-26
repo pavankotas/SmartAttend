@@ -56,7 +56,7 @@ var returnRouter = function(io , users) {
                     .then(user => {
                         console.log("testiong");
                         console.log(users);
-                        io.sockets.in(users['pavan@gmail.com']).emit('Message', {event:'regenerate'})
+                        io.sockets.in(users[qrCode.createdBy]).emit('Message', {event:'regenerate'})
                         res.status(200).json({'message': 'Checked in successfully'});
                     })
                     .catch(err => {
@@ -74,7 +74,7 @@ var returnRouter = function(io , users) {
     });
 
 
-    qrRouter.get('/report',function (req, res, next) {
+    qrRouter.get('/adminreport',function (req, res, next) {
 
         Attendance.aggregate([
 
@@ -110,6 +110,25 @@ var returnRouter = function(io , users) {
         });
 
     });
+
+
+
+
+    qrRouter.get('/studentreport/:id',function (req, res, next) {
+
+       Attendance.find({studentEmailID:req.params.id}, {'_id':0, 'createdOn':1}, function (err, data) {
+
+           var dates = [];
+
+           for(var obj in data){
+               dates.push((new Date(data[obj].createdOn)).toISOString().split('T')[0]);
+           }
+
+           res.json(dates);
+       });
+
+    });
+
 
     return qrRouter;
 
