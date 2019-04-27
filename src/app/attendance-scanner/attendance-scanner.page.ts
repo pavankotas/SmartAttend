@@ -10,6 +10,7 @@ import { AlertController } from '@ionic/angular';
 
 
 import {QrcodeService} from '../services/qrcode.service';
+import {LoadingController} from '@ionic/angular';
 
 
 @Component({
@@ -20,6 +21,7 @@ import {QrcodeService} from '../services/qrcode.service';
 export class AttendanceScannerPage implements OnInit {
 
   encodeData: any;
+  loading;
   scannedData: {};
   response: string;
   barcodeScannerOptions: BarcodeScannerOptions;
@@ -30,7 +32,6 @@ export class AttendanceScannerPage implements OnInit {
     this.socket.emit('Message', {message: this.message, toID: this.toID, from: localStorage.getItem('userID')});
   }
 
-
   constructor(
       private platform: Platform,
       private splashScreen: SplashScreen,
@@ -39,7 +40,8 @@ export class AttendanceScannerPage implements OnInit {
       private  socket: Socket,
       private router: Router,
       public alertController: AlertController,
-      private qrcodeService: QrcodeService
+      private qrcodeService: QrcodeService,
+      private loadingContoller: LoadingController
    ) {
     this.initializeApp();
     // Course data
@@ -55,7 +57,6 @@ export class AttendanceScannerPage implements OnInit {
       showTorchButton: true,
       showFlipCameraButton: true
     };
-
     this.socket.on('Message', (data) => {
       console.log(data);
     });
@@ -63,7 +64,10 @@ export class AttendanceScannerPage implements OnInit {
     console.log(localStorage.getItem('userID'));
     this.socket.emit('set-username', localStorage.getItem('userID'));
   }
-
+  async presentLoading() {
+    this.loading = this.loadingContoller.create({message : 'Please wait..'});
+    await this.loading.present();
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -82,9 +86,11 @@ export class AttendanceScannerPage implements OnInit {
         qrCode : barcodeData.text
       };
       console.log(attendance);
+      this.presentLoading();
       this.qrcodeService.checkin(attendance).subscribe(data => {
         // @ts-ignore
         this.response = data.message;
+        this.loading.dismiss();
         this.presentAlert();
       });
     }).catch(err => {

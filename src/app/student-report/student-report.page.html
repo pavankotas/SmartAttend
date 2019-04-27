@@ -28,7 +28,7 @@
 <ion-content padding>
   <div class="table-responsive">
     <table class="table table-bordered table-hover">
-      <thead class="thead-light">
+      <thead class="theadColor">
       <tr>
         <th scope="col">Classes Attended</th>
         <!--<th scope="col">Total</th>-->
@@ -36,6 +36,9 @@
       </tr>
       </thead>
       <tbody>
+      <tr *ngIf="attendanceReport?.length < 1">
+        <td>No Classes Attended</td>
+      </tr>
       <tr *ngFor="let data of attendanceReport">
         <th scope="row">{{data}}</th>
         <!--<td>{{data.totalStudents}}</td>-->

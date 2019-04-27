@@ -1,18 +1,18 @@
 <ion-header>
     <ion-toolbar color="secondary">
-      <ion-grid>
-        <ion-row>
-            <ion-col>
-                <ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>
-            </ion-col>
-            <ion-col>
-                <ion-label>Attendance Report</ion-label>
-            </ion-col>
-            <ion-col>
-                <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
-            </ion-col>
-        </ion-row>
-      </ion-grid>
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-icon size="large" (click)="backToProfessorHomePage()" name="arrow-dropleft-circle"></ion-icon>
+                </ion-col>
+                <ion-col>
+                    <ion-label>Attendance</ion-label>
+                </ion-col>
+                <ion-col>
+                    <ion-icon name="power" class="float-right" size="large" (click)="logout()" ></ion-icon>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
     </ion-toolbar>
 </ion-header>
 
@@ -58,22 +58,23 @@
 
 </ion-content>-->
 <ion-content padding  class="appBackgroundColor">
-  <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <thead class="thead-light">
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Total</th>
-        <th scope="col">Attended</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let data of attendanceReport">
-        <th scope="row">{{data.date}}</th>
-        <td>{{data.totalStudents}}</td>
-        <td>{{data.attendedStudents}}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="theadColor">
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Attended</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngIf="attendanceReport?.length < 1">
+                <td colspan="2">No Reports to show</td>
+            </tr>
+            <tr *ngFor="let data of attendanceReport" (click)="viewDetailedAttendance(data.date)">
+                <td scope="row">{{data.date}}</td>
+                <td>{{data.attendedStudents}}/{{data.totalStudents}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </ion-content>

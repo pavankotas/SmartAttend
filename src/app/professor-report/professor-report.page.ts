@@ -18,6 +18,9 @@ export class ProfessorReportPage implements OnInit {
   ngOnInit() {
     this.getReport();
   }
+  viewDetailedAttendance(date) {
+    this.router.navigate(['./professor-detailed-report', date]);
+  }
 
   backToProfessorHomePage() {
     this.router.navigate(['./professor-homepage']);

@@ -26,5 +26,8 @@ export class QrcodeService {
   getReport() {
     return this.http.get(`${this.uri}/report`);
   }
+  getDetailedReport(date) {
+    return this.http.get(`${this.uri}/detailedreport/${date}`);
+  }
 
 }
