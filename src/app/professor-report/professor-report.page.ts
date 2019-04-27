@@ -31,6 +31,6 @@ export class ProfessorReportPage implements OnInit {
     });
   }
   logout() {
-    // this.router.navigate(['./login']);
+    this.router.navigate(['./login']);
   }
 }

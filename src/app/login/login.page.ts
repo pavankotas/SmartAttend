@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService} from '../services/login.service';
 import {Route, Router} from '@angular/router';
 import {el} from '@angular/platform-browser/testing/src/browser_util';
-import { LoadingController} from '@ionic/angular';
+import {LoadingService} from '../services/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +15,7 @@ export class LoginPage implements OnInit {
   password: String = '';
   InvalidUser: Boolean = false;
   loading;
-  constructor(private loginService: LoginService, private router: Router, private loadingController: LoadingController) { }
-  async presentLoading() {
-    this.loading = await this.loadingController.create({
-      message: 'Please wait..'
-    });
-    await this.loading.present();
-
-
-  }
+  constructor(private loginService: LoginService, private router: Router, private loadingService: LoadingService) { }
   ngOnInit() {
   }
   login() {
@@ -31,9 +23,9 @@ export class LoginPage implements OnInit {
       emailID: this.emailID,
       password: this.password
     };
-    this.presentLoading();
+    this.loadingService.present('Please wait..');
    this.loginService.authenticate(user).subscribe( (data) => {
-     this.loading.dismiss();
+     this.loadingService.dismiss();
      console.log('Loading dismissed!');
      // this.loading.dismissAll();
      // @ts-ignore
